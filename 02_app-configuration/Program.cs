@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EmbeddedDevices.Dotnet.Playground;
@@ -23,14 +22,14 @@ public class Program : IProgram
                 var config = builder.Build();
 
                 // create service collection
-                var collection = new ServiceCollection();
+                var services = new ServiceCollection();
                 // add configuration interface to service collection
-                collection.AddSingleton<IConfiguration>(config);
+                services.AddSingleton<IConfiguration>(config);
                 // add our Program class to service collection as Singleton
-                collection.AddSingleton<IProgram, Program>();
+                services.AddSingleton<IProgram, Program>();
 
                 // build service provider based on service collection
-                var provider = collection.BuildServiceProvider();
+                var provider = services.BuildServiceProvider();
                 
                 // get service by its interface
                 var program = provider.GetRequiredService<IProgram>();
@@ -48,8 +47,8 @@ public class Program : IProgram
         public void HelloWorld()
         {
                 // get config item from configuration interface
-                var text = _config.GetValue<string>("application:text");
+                var text = _config.GetValue<string>("Application:Text");
                 // print value
-                Console.WriteLine($"text = {text}");
+                Console.WriteLine($"Application:Text = {text}");
         }
 }

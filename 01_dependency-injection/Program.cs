@@ -12,12 +12,12 @@ public class Program : IProgram
         static void Main(string[] args)
         {
                 // create service collection
-                var collection = new ServiceCollection();
+                var services = new ServiceCollection();
                 // add our Program class to service collection as Singleton
-                collection.AddSingleton<IProgram, Program>();
+                services.AddSingleton<IProgram, Program>();
 
                 // build service provider based on service collection
-                var provider = collection.BuildServiceProvider();
+                var provider = services.BuildServiceProvider();
 
                 // get service by its interface
                 var program = provider.GetRequiredService<IProgram>();
