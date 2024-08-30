@@ -2,10 +2,12 @@
 Its just collection of very basic dotnet examples. Can be used as a tutorial for newbees.
 
 ## Chapters
-- [x] 01 Dependency Injection
+- [x] 01 Dependency injection
 - [x] 02 Application configuration
-- [ ] 03 Background service
-- [ ] 04 Unit tests
+- [ ] 03 Logging
+- [ ] 04 Asynchronous tasks
+- [ ] 05 Background services
+- [ ] 06 Unit tests
 
 ## Usage
 
