@@ -1,0 +1,12 @@
+{
+        "Application": {
+                "Text": "some text in settings file"
+        },
+        "Logging": {
+                "LogLevel": {
+                        "Default": "Information",
+                        "Microsoft": "Warning",
+                        "Microsoft.Hosting.Lifetime": "Information"
+                }
+        }
+}

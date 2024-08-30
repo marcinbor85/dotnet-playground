@@ -4,7 +4,7 @@ Its just collection of very basic dotnet examples. Can be used as a tutorial for
 ## Chapters
 - [x] 01 Dependency injection
 - [x] 02 Application configuration
-- [ ] 03 Logging
+- [x] 03 Logging
 - [ ] 04 Asynchronous tasks
 - [ ] 05 Background services
 - [ ] 06 Unit tests
