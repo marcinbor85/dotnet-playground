@@ -6,19 +6,13 @@ Its just collection of very basic dotnet examples. Can be used as a tutorial for
 - [x] 02 Application configuration
 - [x] 03 Logging
 - [x] 04 Asynchronous tasks
-- [ ] 05 Background services
-- [ ] 06 Unit tests
+- [ ] 05 Unit tests
 
 ## Cheat sheet
 
 Create empty dotnet solution
 ```bash
-dotnet new sln -n <solution_name> -o <solution_dir>
-```
-
-Enter to solution directory
-```bash
-cd <solution_dir>
+dotnet new sln -n <solution_name>
 ```
 
 Create new console project
@@ -31,7 +25,7 @@ Add existing project to existing solution
 dotnet sln add <project_name>
 ```
 
-Build and run current project
+Build and run project
 ```bash
 dotnet run --project <project_name>
 ```
