@@ -5,50 +5,50 @@ namespace EmbeddedDevices.Dotnet.Playground;
 
 public interface IProgram
 {
-        void HelloWorld();
+    void HelloWorld();
 }
 
 public class Program : IProgram
 {
-        private readonly IConfiguration _config;
+    private readonly IConfiguration _config;
 
-        static void Main(string[] args)
-        {
-                // create configuration builder
-                var builder = new ConfigurationBuilder();
-                // load add configuration settings file to builder
-                builder.AddJsonFile("settings.json");
-                // build configuration
-                var config = builder.Build();
+    static void Main(string[] args)
+    {
+        // create configuration builder
+        var builder = new ConfigurationBuilder();
+        // load add configuration settings file to builder
+        builder.AddJsonFile("settings.json");
+        // build configuration
+        var config = builder.Build();
 
-                // create service collection
-                var services = new ServiceCollection();
-                // add configuration interface to service collection
-                services.AddSingleton<IConfiguration>(config);
-                // add our Program class to service collection as Singleton
-                services.AddSingleton<IProgram, Program>();
+        // create service collection
+        var services = new ServiceCollection();
+        // add configuration interface to service collection
+        services.AddSingleton<IConfiguration>(config);
+        // add our Program class to service collection as Singleton
+        services.AddSingleton<IProgram, Program>();
 
-                // build service provider based on service collection
-                var provider = services.BuildServiceProvider();
-                
-                // get service by its interface
-                var program = provider.GetRequiredService<IProgram>();
+        // build service provider based on service collection
+        var provider = services.BuildServiceProvider();
 
-                // call method interface
-                program.HelloWorld();
-        }
+        // get service by its interface
+        var program = provider.GetRequiredService<IProgram>();
 
-        public Program(IConfiguration config)
-        {
-                // get confguration interface through dependency injection
-                _config = config;
-        }
+        // call method interface
+        program.HelloWorld();
+    }
 
-        public void HelloWorld()
-        {
-                // get config item from configuration interface
-                var text = _config.GetValue<string>("Application:Text");
-                // print value
-                Console.WriteLine($"Application:Text = {text}");
-        }
+    public Program(IConfiguration config)
+    {
+        // get confguration interface through dependency injection
+        _config = config;
+    }
+
+    public void HelloWorld()
+    {
+        // get config item from configuration interface
+        var text = _config.GetValue<string>("Application:Text");
+        // print value
+        Console.WriteLine($"Application:Text = {text}");
+    }
 }
